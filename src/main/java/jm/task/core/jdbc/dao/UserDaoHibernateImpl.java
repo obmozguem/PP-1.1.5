@@ -26,7 +26,7 @@ public class UserDaoHibernateImpl implements UserDao {
                 "age TINYINT NOT NULL)";
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
-            Query query = session.createSQLQuery(sglCommand).addEntity(User.class);
+            //Query query = session.createSQLQuery(sglCommand).addEntity(User.class);
             transaction.commit();
             session.close();
         }
