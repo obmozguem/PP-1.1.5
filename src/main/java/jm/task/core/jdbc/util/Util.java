@@ -19,6 +19,10 @@ public class Util {
     private static final String DB_PASSWORD = "root";
     private static SessionFactory sessionFactory;
 
+    public static void closeFactory () {
+        sessionFactory.close();
+    }
+
     public static Connection getConnection() {
         Connection connection = null;
         try {
@@ -47,7 +51,7 @@ public class Util {
 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-                settings.put(Environment.HBM2DDL_AUTO, "");
+                settings.put(Environment.HBM2DDL_AUTO, "none");
 
                 configuration.setProperties(settings);
 
